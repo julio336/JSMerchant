@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <title>FoodWorks - Products: <%= controller.action_name %></title>  
+    <%= stylesheet_link_tag "custom" %>
+    <%= javascript_include_tag "rails" %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+<p style="color: green"><%= flash[:notice] %></p>
+<div class="wrapper">
+	<%= render 'layouts/header' %>
+     <!-- <div class="sidebar">
+      (sidebar)  
+    </div>-->
+<div class="container">
+	<div class="span12">
+    	<div class="main">
+      		<%= yield %>
+    	</div>
+	</div>
+</div>
+	<%= render 'layouts/footer' %>
+</div>
+</body>
+</html>
