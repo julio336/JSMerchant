@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'nifty-generators'
 gem 'bootstrap-sass', '2.0.4'
+gem "omniauth-twitter"
+gem "omniauth", "~> 1.1.1"
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

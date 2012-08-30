@@ -39,4 +39,13 @@ class OrdersController < ApplicationController
     @order.destroy
     redirect_to products_path, :notice => "Successfully destroyed order."
   end
+  
+  def purchase
+      # Find the order
+      # Set the address_id
+      # Change the status to "submitted"
+      # Save it
+      # Remove the order_id from the session so they can't edit it
+      # Display a thank you page with an order summary
+  end
 end

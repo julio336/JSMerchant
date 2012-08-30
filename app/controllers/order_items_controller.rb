@@ -4,9 +4,11 @@ class OrderItemsController < ApplicationController
   
   def create
     @order_item = @order.order_items.find_or_initialize_by_product_id(params[:product_id])
-    @order_item = @order_item.sum(:quantity)
-    
-      if @order_item.save
+    unless @order_item.new_record?
+        @order_item.quantity 
+    end
+          
+    if @order_item.save
         redirect_to @order, :notice => "Successfully created order item."
       else
         render :action => 'new'
@@ -19,10 +21,14 @@ class OrderItemsController < ApplicationController
 
   def update
     @order_item = OrderItem.find(params[:id])
-    if @order_item.update_attributes(params[:order_item])
-      redirect_to @order_item, :notice  => "Successfully updated order item."
+    if params[:order_item][:quantity].to_i == 0
+      @order_item.destroy
+      redirect_to @order, :notice  => "Item was removed"
+    elsif
+      @order_item.update_attributes(params[:order_item])
+      redirect_to @order, :notice => "Successfully updated the order item"
     else
-      render :action => 'edit'
+      redirect_to @order_item
     end
   end
 

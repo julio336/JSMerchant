@@ -12,6 +12,7 @@
 				<p><%= image_tag "/images/products/#{product.img_url}" %></p>
 				<p>Price: <span><%= print_price(product.price) %></span></p>
 				<p>Description: <span><%= product.description %></span></p>
+				<p>Stock: <span><%= product.stock %></span></p>
 				<p><%= link_to "View", product_path(product) %></p>
 			  	<p><%= button_to "Add to Cart", order_items_path(:product_id => product.id) %></p>
 				</div>
